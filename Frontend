@@ -1,0 +1,62 @@
+import Header from "./components/Header";Add commentMore actions
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Notification from "./components/Notification/Notification";
+import { useState } from "react";
+
+function App() {
+  const [showNotification, setShowNotification] = useState(true);
+
+  const handleClose = () => {
+    setShowNotification(false);
+  };
+
+  const message =
+    "Please note: This Task Manager application requires you to log in or sign up to manage tasks. As the application is hosted on a free server (OnRender), loading your data may take some time if the server was idle. We appreciate your patience!";
+return (
+{showNotification && (Add commentMore actions
+        <Notification message={message} onClose={handleClose} />
+      )}
+function Notification({ message, onClose }) {Add commentMore actions
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        backgroundColor: "#f9f9f9",
+        border: "1px solid #ccc",
+        borderRadius: "10px",
+        padding: "20px",
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+        zIndex: 1000,
+      }}
+   <div>Add commentMore actions
+      {showNotification && (
+        <Notification message={message} onClose={handleClose} />
+      )}
+      <ToastContainer />
+      <Header />
+      <main>  
+      <h1 style={{ fontSize: "20px", fontWeight: "bold" }}>Important Notice</h1>
+      <p style={{ color: "#555" }}>{message}</p>
+      <button
+        onClick={onClose}
+        style={{
+          marginTop: "10px",
+          padding: "10px 20px",
+          backgroundColor: "#007BFF",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        Okay
+      </button>
+    </div>
+  );
+}
+
+export default Notification;
